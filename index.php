@@ -1,7 +1,7 @@
 <?php 
-/*
-require_once 'db.php';
 
+require_once 'db.php';
+/*
 session_start();
 if(!isset($_SESSION['user_login'])) {
     header("location: index.php");
@@ -15,6 +15,8 @@ $stmt->execute(array(":id"=>$id));
 $row=$stmt->fetch(PDO::FETCH_ASSOC);
 
 */
+
+
 ?>
 
 
@@ -31,8 +33,8 @@ $row=$stmt->fetch(PDO::FETCH_ASSOC);
 
 <a href='#' class="brand-logo center">Blue Paradise </a>
 <div class="right pr-5">
-<a href="#" class="btn waves-effect  #81d4fa light-blue lighten-2 z-depth-2" name="sign-in"> Sign in </a>
-<a href="#" class="btn waves-effect #01579b light-blue darken-4 z-depth-2" name="sign-up"> Sign up </a>
+<a href="login.php" class="btn waves-effect  #81d4fa light-blue lighten-2 z-depth-2" name="login"> Sign in </a>
+<a href="signup" class="btn waves-effect #01579b light-blue darken-4 z-depth-2" name="register"> Sign up </a>
 
 </div>
 </nav>
@@ -58,7 +60,7 @@ $row=$stmt->fetch(PDO::FETCH_ASSOC);
           <h6 class=" ">Just with few clicks organize the most beautiful day of your life</h6>
         </div>
         <div class="card-action #2196f3 blue">
-          <a  class= "black-text " href="#">Click for more</a>
+          <a  class= "black-text " href="./views/weddings.php">Click for more</a>
         </div>
       </div>
     </div>
@@ -74,7 +76,7 @@ $row=$stmt->fetch(PDO::FETCH_ASSOC);
           <h6>We offer different kinds of decorations for birthdays</h6>
         </div>
         <div class="card-action #2196f3 blue  ">
-          <a class= "black-text"href="#">
+          <a class= "black-text"href="./views/birthdays.php">
           
           Click for more</a>
         </div>
@@ -85,14 +87,14 @@ $row=$stmt->fetch(PDO::FETCH_ASSOC);
       <div class="col s12 m4">
       <div class="card  blue lighten-4">
         <div class="card-image">
-          <img class="img" src="img/catering1.jpg">
+          <img class="img" src="img/catering.jpg">
         </div>
         <span class="card-title blue-text">Catering</span>
         <div class="card-content ">
           <h6>We offer catering services for all kinds of events</h6>
         </div>
         <div class="card-action #2196f3 blue" >
-          <a  class= "black-text" href="#">Click for more</a>
+          <a  class= "black-text" href="./views/catering.php">Click for more</a>
         </div>
       
     </div>
