@@ -1,6 +1,8 @@
 <?php 
 require_once "db.php";
 
+$registered = false;
+
 if(isset($_REQUEST['register'])) {
 
  $username = strip_tags($_REQUEST['username']);
@@ -34,12 +36,18 @@ if(isset($_REQUEST['register'])) {
          else {
              $new_pass = password_hash($password, PASSWORD_DEFAULT);
              $insert_stmt=$conn->prepare("INSERT INTO users (username,email,password) VALUES (:username,:email,:password)");
-             if($insert_stmt->execute(array (':username'=>$username,
-             
-                                              ':email'=>$email,
-                                              ':password'=>$new_pass))){
-        echo "Registered succesfully";  
+             if($insert_stmt->execute(array (':username'=>$username, ':email'=>$email,':password'=>$new_pass))){
+                echo "Registered succesfully";  
+                header("location:index.php");
+
+                $registered == true;
+                exit;
+
+      
+       
+
                                               }
+                                              
          }
      }
      catch(PDOException $e) {
@@ -81,6 +89,9 @@ if(isset($_REQUEST['register'])) {
         <input type="password" name="Confpassword">  
 
        <button  name="register" class="btn"> Submit </button> 
+       <br> <br>
+
+       <a href="login.php">Already have an account? Log in </a>
 
     </form>
     </div>

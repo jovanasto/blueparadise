@@ -1,11 +1,10 @@
 <?php 
-
 require_once 'db.php';
-/*
+
+
+
 session_start();
-if(!isset($_SESSION['user_login'])) {
-    header("location: index.php");
-}
+ 
 
 $id = $_SESSION['user_login'];
 
@@ -14,7 +13,7 @@ $stmt->execute(array(":id"=>$id));
 
 $row=$stmt->fetch(PDO::FETCH_ASSOC);
 
-*/
+
 
 
 ?>
@@ -33,9 +32,15 @@ $row=$stmt->fetch(PDO::FETCH_ASSOC);
 
 <a href='#' class="brand-logo center">Blue Paradise </a>
 <div class="right pr-5">
-<a href="login.php" class="btn waves-effect  #81d4fa light-blue lighten-2 z-depth-2" name="login"> Sign in </a>
-<a href="signup" class="btn waves-effect #01579b light-blue darken-4 z-depth-2" name="register"> Sign up </a>
+<?php if(isset($_SESSION['user_login']) && !empty($_SESSION['user_login']) || $registered==true) {
+  ?>
+  <a href="logout.php" class="btn waves-effect  #81d4fa light-blue lighten-2 z-depth-2" name="logout"> Log out </a>
 
+<?php }else { ?>
+
+<a href="login.php" class="btn waves-effect  #81d4fa light-blue lighten-2 z-depth-2" name="login"> Sign in </a>
+<a href="signup.php" class="btn waves-effect #01579b light-blue darken-4 z-depth-2" name="register"> Sign up </a>
+<?php } ?>
 </div>
 </nav>
 

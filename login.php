@@ -1,5 +1,4 @@
-
-<?php 
+<?php
 
 require_once 'db.php';
 
@@ -31,8 +30,8 @@ else {
             if($username==$row["username"]){
                 if(password_verify($password, $row["password"])) {
                     $_SESSION["user_login"] = $row["id"];
-                    echo "Successful login";
-                    header("refresh:2; index.php");
+                  
+                    header("refresh:1; index.php");
                 }
                 else {
                     echo "Wrong password";
@@ -55,8 +54,7 @@ else {
 
 
 ?>
-
-
+ 
 
 <html>
 <head>
@@ -82,6 +80,8 @@ else {
         <input type="password" name="password">   
    
        <button name="login" class="btn"> Submit </button> 
+       <br> <br>
+       <a href="signup.php">Don't have an account? Register now </a>
 
     </form>
     </div>
